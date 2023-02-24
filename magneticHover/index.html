@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div class="main">
+        <h1>Megnatic button on mouse move</h1>
+
+        <a href="#" class="btn color1"><span>hover me </span></a>
+        <a href="#" class="btn color2"><span>hover me </span></a>
+        <a href="#" class="btn color3"><span>hover me </span></a>
+        <!-- <div class="btn btn1">hover me</div>
+        <div class="btn btn2">hover me</div>
+        <div class="btn btn3">hover me</div> -->
+    </div>
+
+    <script>
+        let btns = document.querySelectorAll(".btn");
+        btns.forEach((ele)=>{
+           // console.log(a)
+            ele.addEventListener("mousemove", function(e){
+                const position = ele.getBoundingClientRect(); // getBoundingClientRect() ye method "ele" me jo element hai uska pura width height top, b, l, r with margin padding value 
+                                                          //  deta hai adn x and y-axis position bhi (viewport me refrnce leta hai x y l r t b ke liye )
+                //console.log(position)
+                const x = e.pageX - position.left - position.width / 2;
+                const y = e.pageY - position.top - position.height / 2;
+
+                ele.children[0].style.transform = "translate("+ x*0.4 +"px, "+ y*0.5 +"px)"; //x & y axis me kitna trnaslate hoga bta rhe hai cursor le jane pe;
+        })
+
+        btns.forEach((remove)=>{
+            remove.addEventListener("mouseout", function(el){
+                remove.children[0].style.transform = "translate(0px, 0px)"
+            })
+        })
+
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+
+</head>
+<body>
+    
+    <div class="crsor"></div>
+    <h1>Cursor Animation</h1>
+</body>
+
+<script>
+    let crsor = document.querySelector(".crsor");
+    let timer;
+    document.addEventListener("mousemove", (e) => {
+        //console.log("hehe")
+        let xm = e.pageX;
+        let ym = e.pageY;
+        //console.log(xm)
+        crsor.style.top = ym + "px" ;
+        crsor.style.left = xm + "px" ;
+        crsor.style.display = "block";
+
+        function stp (){        //mousemove wala event bar-bar clega to setTimout bhi barbar chalega isiliye yhadefine kiye;
+                                //globaly define krne pe ek hi bar chlta;
+        crsor.style.display= "none"
+    }
+
+        clearTimeout(timer);
+        timer = setTimeout(stp, 1000);
+    });
+
+    document.addEventListener("mouseout", ()=>{
+        crsor.style.display = "none";
+    });
+    
+    
+   
+    // document.body.onmousemove = e =>{
+    //     let x= e.pageX;
+
+    //     cursor.style.left = x + "px"
+    // }
+
+</script>
+</html>

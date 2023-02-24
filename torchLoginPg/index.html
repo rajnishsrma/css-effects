@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <h1>Login</h1>
+        <form class="form-item">
+            <label for="name">name</label>
+            <input type="text" id="name" placeholder="enter your name" />
+            <label for="password">password</label>
+            <input type="password" id="password" placeholder="enter your password" autofocus = "off"/>
+            <span class="hide" onclick="show()">&caps;</span>
+           
+        </form>
+        <button class="btn">submit</button>
+        
+                <span class="triangle"></span>
+       
+    </div>
+</div>
+
+<script>
+     let a = 1;
+    function show(){
+       
+        if(a==1){
+            document.getElementById("password").style.backgroundColor = "transparent";
+            let showPassword =  document.getElementById("password")
+                if(showPassword.type === "password"){
+                    showPassword.type = "text";
+                }else{
+                    return showPassword.type = "password";
+                }
+           showPassword.style.zIndex = 1 ;
+            document.getElementsByClassName("triangle")[0].style.display = 'block';
+
+            document.getElementsByClassName("main")[0].style.backgroundColor ="grey";
+
+            return a = 0;
+
+        }else{
+            document.getElementById("password").style.backgroundColor = "white";
+      
+            document.getElementById("password").type = "password";
+            
+            document.getElementsByClassName("main")[0].style.backgroundColor ="white";
+
+            document.getElementsByClassName("triangle")[0].style.display = 'none';
+
+            return a = 1;
+        }
+
+         document.getElementsByClassName("triangle")[0].style.display = 'none'
+        
+        // let a = document.getElementById("name").value;
+        // // var str = "jhjhjh" + a
+        // document.getElementsByClassName('triangle')[0].style.display = "none" ;
+      
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+
+</head>
+<body>
+    <div class="main"></div>
+    <h1>hi mouse move effect</h1>
+    <div id="blur">aldkshfgh</div>
+</body>
+
+<script>
+
+
+// method - one ====>
+// document.addEventListener("mousemove", (e)=>{
+//     let x = e.pageX;
+//     let y = e.pageY;
+
+//     //let cursor = document.getElementsByClassName("main")[0]; or 
+//     let cursor = document.querySelector(".main");
+//     cursor.style.left = `${x}px`;
+//     cursor.style.top = y + "px" ;
+// })
+
+//method - two ====>
+let pointers = document.querySelector(".main");
+
+    document.body.onpointermove = event => {
+      //clientX bhi same hai bus ye viewport height jaisa (100vh) kam krta hai
+    const {clientX, clientY} = event;    // means jitna dikh rha hai uske hisab se apna relative position leta hai;
+                           // but pageX & pageY pure body ya page ke hisab se position leta hai ;
+   pointers.animate({
+   left : `${clientX}px`,
+   top : `${clientY}px`
+   }, {duration: 3000, fill: "forwards"}) // duration add krme se vo circle(main) cursor se chipak ke nai rhega 3sec bad aayega cursor ke pas;
+   
+   
+  // console.log(event)
+}
+
+//    let a = document.querySelector(".main");
+//    function cursorHandler(e){
+//      let x = e.pageX;
+//     // let y = e.pageY;
+//     console.log("hshh", e)
+//    }
+   
+</script>
+</html>

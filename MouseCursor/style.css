@@ -1,0 +1,45 @@
+
+body{
+    background-color: black;
+}
+.main{
+    /* height: 100px;
+    width: 100px;
+    border-radius: 50%; */
+    height: 200px;
+    width: 300px;
+    background-color: bisque;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(to top, aquamarine, rgb(140, 99, 223));
+    position: absolute;
+   animation: rotate 20s infinite;
+   filter: blur(50px);
+   
+}
+h1{
+    background-color: aqua;
+    color: white;
+    font-size: 24px;
+}
+#blur{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    backdrop-filter: blur(50px);
+    /* opacity: 0.2; */
+}
+
+@keyframes rotate {
+    from{
+        rotate: 0deg;
+    }
+    50%{
+        scale: 1.2 1.5;
+    }
+    to{
+        rotate: 360deg;
+    }
+}
